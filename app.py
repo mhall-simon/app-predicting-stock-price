@@ -29,7 +29,7 @@ app.layout = html.Div([
 
     html.H3('Model Selection and Parameters'),
     dcc.Dropdown(['exp_smooth','lr_cds_dt','en_cds_dt','ridge_cds_dt','lasso_cds_dt','lar_cds_dt','llar_cds_dt',
-    'br_cds_dt','huber_cds_dt'],
+    'br_cds_dt','huber_cds_dt','par_cds_dt','omp_cds_dt','knn_cds_dt','naive','polytrend','croston'],
         'exp_smooth',
         id='model-dropdown'
     ),
@@ -79,7 +79,7 @@ def pycaret_graph(value, model, col):
     df = df[[col]]
 
     exp = TSForecastingExperiment()
-    exp.setup(data=df, fh=5, fold=3, fig_kwargs={'renderer':'png'}, seasonal_period="M", transform_target='log', n_jobs=1)
+    exp.setup(data=df, fh=12, fold=2, fig_kwargs={'renderer':'png'}, seasonal_period="M", transform_target=None, n_jobs=1)
 
     model = exp.create_model(model)
     final = exp.finalize_model(model)
