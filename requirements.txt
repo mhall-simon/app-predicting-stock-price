@@ -73,6 +73,7 @@ numpy==1.20.3
 oauthlib==3.2.2
 packaging==21.3
 pandas==1.5.1
+pandas_datareader==0.10.0
 pandas-profiling==3.4.0
 parso==0.8.3
 patsy==0.5.3
@@ -90,7 +91,7 @@ protobuf==4.21.8
 psutil==5.9.3
 ptyprocess==0.7.0
 pure-eval==0.2.2
-pycaret==2.3.10
+pycaret==3.0.0.rc4
 pydantic==1.10.2
 Pygments==2.13.0
 PyJWT==2.6.0
