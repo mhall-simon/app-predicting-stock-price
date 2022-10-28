@@ -3,4 +3,4 @@ gunicorn
 mlflow
 pandas
 pandas_datareader
-pycaret==3.0.0.rc4[full]
+pycaret==3.0.0.rc4
