@@ -60,8 +60,8 @@ def display_price_graph(value, col):
                 [Input('dropdown', 'value')])
 def pull_stock_price(value):
     df = web.DataReader(value, 'yahoo')
+    df = df.resample('M').last()
     df = df.reset_index()
-
     return df.to_dict('records')
 
 
@@ -79,7 +79,7 @@ def pycaret_graph(value, model, col):
     df = df[[col]]
 
     exp = TSForecastingExperiment()
-    exp.setup(data=df, fh=90, fold=3, fig_kwargs={'renderer':'png'}, seasonal_period="D", transform_target='log')
+    exp.setup(data=df, fh=5, fold=3, fig_kwargs={'renderer':'png'}, seasonal_period="M", transform_target='log', n_jobs=1)
 
     model = exp.create_model(model)
     final = exp.finalize_model(model)
